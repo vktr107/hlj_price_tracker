@@ -1,0 +1,39 @@
+name: run-periodically
+on:
+    schedule:
+        - cron: "*/30 * * * *"
+    workflow_dispatch:
+
+concurrency:
+  group: price-tracker
+  cancel-in-progress: false
+
+jobs:
+    run-price-tracker:
+        runs-on: ubuntu-slim
+        timeout-minutes: 3
+        permissions:
+            contents: write
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v6
+            - name: Set up Python
+              uses: actions/setup-python@v6
+              with:
+                python-version: "3.14.2"
+                cache: "pip"
+            - name: Install dependencies
+              run: |
+                pip install --upgrade pip
+                pip install -r requirements.txt
+            - name: Run the script
+              env:
+                PRICE_TRACKER_NTFY_TOPIC: ${{ secrets.PRICE_TRACKER_NTFY_TOPIC }}
+              run: python hlj_price_tracker.py
+            - name: Commit and push
+              run: |
+                git config user.name "github-actions[bot]"
+                git config user.email "github-actions[bot]@users.noreply.github.com"
+                git add saved.csv
+                git diff --staged --quiet || git commit -m "Update saved.csv"
+                git push
