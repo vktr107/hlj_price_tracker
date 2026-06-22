@@ -1,8 +1,4 @@
 code,stock,price
-BAN75669,instock,500
-BAN951920,instock,1400
-BAN952366,instock,1900
-BAN962047,instock,5400
 BAN964561,instock,1805
 BAN969492,instock,2660
 BAN975313,instock,1000
@@ -118,13 +114,9 @@ BANH742742,futurerelease,1600
 BANH742766,futurerelease,1000
 BANH742933,futurerelease,1200
 BANH742940,futurerelease,880
-BANN01876,instock,1200
-BANN25756,instock,2200
 BANS57778,instock,1380
 BANS57792,instock,1380
 BANS58192,instock,500
-BANS58205,instock,2000
-BANS58930,instock,2200
 BANS59531,instock,1311
 BANS59549,instock,780
 BANS60252,instock,1104
@@ -143,7 +135,6 @@ BANS62200,instock,2400
 BANS62944,instock,1600
 BANS62952,instock,800
 BANS63359,instock,480
-BANS63364,instock,1700
 BANS63384,instock,970
 BANS63387,instock,1380
 BANS63710,instock,1100
